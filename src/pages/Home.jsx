@@ -1,10 +1,11 @@
-import {useContext} from "react"
-import {AppContext} from "../Context/AppContext.jsx"
+// import {useContext} from "react"
+// import {AppContext} from "../Context/AppContext.jsx"
+import HomeBanner from "../components/HomeBanner.jsx"
 
 const Home = () => {
-    const {allRecipesData} = useContext(AppContext)
-    console.log(allRecipesData)
-    return <main>Home</main>
+    return <main className="h-[150vh]">
+        <HomeBanner />
+    </main>
 }
 
 export default Home
