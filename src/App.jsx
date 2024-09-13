@@ -6,6 +6,8 @@ import Search from "./pages/Search.jsx"
 import Category from "./pages/Category.jsx"
 import RecipeDetails from "./pages/RecipieDetails.jsx"
 import AppProvider from "./Context/AppContext.jsx"
+import AllRecipes from "./pages/AllRecipes.jsx"
+import RecipeByMealType from "./pages/RecipeByMealType.jsx"
 
 const App = () => {
     return <AppProvider>
@@ -13,8 +15,10 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<Home/>}/>
-                    <Route path="recipe-by-cuisine" element={<RecipeByCuisine/>}/>
+                    <Route path="all" element={<AllRecipes/>}/>
+                    <Route path="cuisine/:cuisine" element={<RecipeByCuisine/>}/>
                     <Route path="search" element={<Search/>}/>
+                    <Route path="meal-type/:type" element={<RecipeByMealType/>}/>
                     <Route path="category/:category" element={<Category/>}/>
                     <Route path="details/:id" element={<RecipeDetails/>}/>
                 </Route>
