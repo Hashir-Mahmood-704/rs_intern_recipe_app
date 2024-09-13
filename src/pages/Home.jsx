@@ -1,15 +1,22 @@
-// import {useContext} from "react"
-// import {AppContext} from "../Context/AppContext.jsx"
+import {useContext} from "react"
+import {AppContext} from "../Context/AppContext.jsx"
 import HomeBanner from "../components/HomeBanner.jsx"
 import HomeAfterBanner from "../components/HomeAfterBanner.jsx"
 import HomeShowRecipes from "../components/HomeShowRecipes.jsx"
 
 const Home = () => {
+    const {allRecipesData} = useContext(AppContext)
     return <main className="flex flex-col items-start gap-[40px]">
         <HomeBanner/>
         <section className="max-w-[1600px] w-full mx-auto">
             <HomeAfterBanner/>
-            <HomeShowRecipes />
+            {allRecipesData.length > 0 &&
+                <HomeShowRecipes
+                    title="Trending Recipes"
+                    recipesArray={allRecipesData.slice(0, 8)}
+                />
+            }
+
         </section>
     </main>
 }
