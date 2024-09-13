@@ -19,7 +19,7 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    return <nav className={`fixed top-0 left-0 w-full flex justify-between items-center px-[20px] h-[60px] 
+    return <nav className={`fixed z-50 top-0 left-0 w-full flex justify-between items-center px-[20px] h-[60px] 
     ${isScrolled ? "bg-white" : "bg-transparent"} transition-all duration-500 ease-in-out`}>
         <h1 className={`font-semibold ${isScrolled ? "text-black" : "text-white"} text-[28px] 
         transition-all duration-500 ease-in-out`}>Perfect
@@ -40,9 +40,6 @@ const Navbar = () => {
                 <p className="font-bold text-[30px] sm:text-[36px]">Recipe Pages</p>
                 <Link to="/all">
                     <span className=" font-semibold flex items-center gap-[10px]"><ImSpoonKnife/> All Recipes</span>
-                </Link>
-                <Link to="/category/none">
-                    <span className=" font-semibold flex items-center gap-[10px]"><ImSpoonKnife/> Recipe by Category</span>
                 </Link>
                 <Link to="/cuisine/none">
                     <span className=" font-semibold flex items-center gap-[10px]"><ImSpoonKnife/> Recipe by Cuisine</span>

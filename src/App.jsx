@@ -3,7 +3,6 @@ import Home from "./pages/Home.jsx"
 import Layout from "./pages/Layout.jsx"
 import RecipeByCuisine from "./pages/RecipeByCuisine.jsx"
 import Search from "./pages/Search.jsx"
-import Category from "./pages/Category.jsx"
 import RecipeDetails from "./pages/RecipieDetails.jsx"
 import AppProvider from "./Context/AppContext.jsx"
 import AllRecipes from "./pages/AllRecipes.jsx"
@@ -19,7 +18,6 @@ const App = () => {
                     <Route path="cuisine/:cuisine" element={<RecipeByCuisine/>}/>
                     <Route path="search" element={<Search/>}/>
                     <Route path="meal-type/:type" element={<RecipeByMealType/>}/>
-                    <Route path="category/:category" element={<Category/>}/>
                     <Route path="details/:id" element={<RecipeDetails/>}/>
                 </Route>
             </Routes>
