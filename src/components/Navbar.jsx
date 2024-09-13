@@ -4,11 +4,13 @@ import {Link} from "react-router-dom"
 import {ImSpoonKnife} from "react-icons/im";
 import {IoMdSearch} from "react-icons/io";
 import {IoCloseCircleOutline} from "react-icons/io5";
+import {useLocation} from "react-router-dom"
 
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+    const {pathname} = useLocation()
     useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY
@@ -22,7 +24,7 @@ const Navbar = () => {
     return <nav className={`fixed z-50 top-0 left-0 w-full flex justify-between items-center px-[20px] h-[60px] 
     ${isScrolled ? "bg-white" : "bg-transparent"} transition-all duration-500 ease-in-out`}>
         <Link to="/">
-            <h1 className={`font-semibold ${isScrolled ? "text-black" : "text-white"} text-[28px] 
+            <h1 className={`font-semibold ${isScrolled ? "text-black" :  pathname === "/" && "text-white"} text-[28px] 
         transition-all duration-500 ease-in-out`}>Perfect
                 <span className="text-orange-500">Recipe</span>
             </h1>
