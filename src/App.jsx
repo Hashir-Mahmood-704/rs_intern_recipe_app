@@ -7,17 +7,19 @@ import RecipeDetails from "./pages/RecipieDetails.jsx"
 import AppProvider from "./Context/AppContext.jsx"
 import AllRecipes from "./pages/AllRecipes.jsx"
 import RecipeByMealType from "./pages/RecipeByMealType.jsx"
+import ScrollToTop from "./components/ScrollToTop.jsx"
 
 const App = () => {
     return <AppProvider>
         <BrowserRouter>
+            <ScrollToTop />
             <Routes>
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<Home/>}/>
                     <Route path="all" element={<AllRecipes/>}/>
-                    <Route path="cuisine/:cuisine" element={<RecipeByCuisine/>}/>
+                    <Route path="cuisine" element={<RecipeByCuisine/>}/>
                     <Route path="search" element={<Search/>}/>
-                    <Route path="meal-type/:type" element={<RecipeByMealType/>}/>
+                    <Route path="meal-type" element={<RecipeByMealType/>}/>
                     <Route path="details/:id" element={<RecipeDetails/>}/>
                 </Route>
             </Routes>

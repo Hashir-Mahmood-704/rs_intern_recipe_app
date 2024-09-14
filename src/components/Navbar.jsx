@@ -58,12 +58,12 @@ const Navbar = () => {
                 </Link>
                 <Link
                     onClick={() => setIsSidebarOpen(false)}
-                    to="/cuisine/none">
+                    to="/cuisine">
                     <span className=" font-semibold flex items-center gap-[10px]"><ImSpoonKnife/> Recipe by Cuisine</span>
                 </Link>
                 <Link
                     onClick={() => setIsSidebarOpen(false)}
-                    to="/meal-type/none">
+                    to="/meal-type">
                     <span className=" font-semibold flex items-center gap-[10px]"><ImSpoonKnife/> Recipe by Meal Type</span>
                 </Link>
                 <Link
