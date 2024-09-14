@@ -6,7 +6,6 @@ import {IoMdSearch} from "react-icons/io";
 import {IoCloseCircleOutline} from "react-icons/io5";
 import {useLocation} from "react-router-dom"
 
-
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -20,11 +19,16 @@ const Navbar = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-
-    return <nav className={`fixed z-50 top-0 left-0 w-full flex justify-between items-center px-[20px] h-[60px] 
+    useEffect(() => {
+        if (isSidebarOpen) document.body.style.overflow = 'hidden'
+        return () => {
+            document.body.style.overflow = 'auto'
+        }
+    }, [isSidebarOpen])
+    return <nav className={`fixed z-50 top-0 left-0 w-full flex justify-between items-center px-[20px] h-[50px] sm:h-[60px] 
     ${isScrolled ? "bg-white" : "bg-transparent"} transition-all duration-500 ease-in-out`}>
         <Link to="/">
-            <h1 className={`font-semibold ${isScrolled ? "text-black" :  pathname === "/" && "text-white"} text-[28px] 
+            <h1 className={`font-semibold ${isScrolled ? "text-black" : pathname === "/" && "text-white"} text-[22px] sm:text-[28px] 
         transition-all duration-500 ease-in-out`}>Perfect
                 <span className="text-orange-500">Recipe</span>
             </h1>

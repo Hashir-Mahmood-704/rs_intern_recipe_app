@@ -4,9 +4,10 @@ export const AppContext = createContext({})
 
 const AppProvider = ({children}) => {
     const [allRecipesData, setAllRecipesData] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
     useEffect(() => {
-        console.log("Fetching data....")
         const fetchRecipeData = async () => {
+            setIsLoading(true)
             try {
                 const url = "https://dummyjson.com/recipes?limit=0"
                 const response = await fetch(url)
@@ -15,7 +16,9 @@ const AppProvider = ({children}) => {
                 }
                 const data = await response.json()
                 setAllRecipesData(data["recipes"])
+                setIsLoading(false)
             } catch (error) {
+                setIsLoading(false)
                 console.error("Error in fetching recipe data")
                 if (error instanceof Error) {
                     console.error(error.message)
@@ -27,7 +30,7 @@ const AppProvider = ({children}) => {
         (async () => await fetchRecipeData())()
     }, []);
     return <AppContext.Provider
-        value={{allRecipesData, setAllRecipesData}}>
+        value={{allRecipesData, setAllRecipesData, isLoading}}>
         {children}
     </AppContext.Provider>
 }

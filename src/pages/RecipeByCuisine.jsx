@@ -30,15 +30,15 @@ const RecipeByCuisine = () => {
     }, [pageNumber, allRecipesData, cuisine]);
 
     return <section>
-        <h1 className="text-orange-500 font-bold text-[40px] text-center mt-[80px]">Recipes by Cuisine</h1>
-        <div className="flex items-center justify-center gap-[20px] flex-wrap mt-[30px] px-[20px]">
+        <h1 className="text-orange-500 font-bold text-[30px] sm:text-[40px] text-center mt-[80px]">Recipes by Cuisine</h1>
+        <div className="flex items-center justify-center gap-[10px] flex-wrap mt-[20px] px-[20px]">
             {availableCuisines.map((item, index) => <button
                 onClick={() => {
                     setPageNumber(0)
                     setCuisine(item)
                 }}
                 key={index}
-                className={`text-[18px]  text-white px-[12px] py-[10px] sm:px-[20px] sm:py-[10px] rounded-[10px] ${cuisine === item ? 'bg-orange-700' : 'bg-orange-500'}`}>{item}</button>)}
+                className={`text-[16px] sm:text-[18px]  text-white px-[12px] py-[10px] sm:px-[20px] sm:py-[10px] rounded-[10px] ${cuisine === item ? 'bg-orange-700' : 'bg-orange-500'}`}>{item}</button>)}
         </div>
         <ShowRecipes
             recipesToShow={recipesToShow}
