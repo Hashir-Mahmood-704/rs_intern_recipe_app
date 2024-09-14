@@ -1,6 +1,7 @@
 import ShowRecipes from "../components/ShowRecipes.jsx"
 import {useContext, useState, useEffect} from "react"
 import {AppContext} from "../Context/AppContext.jsx"
+import {IoSearchOutline} from "react-icons/io5"
 
 const Search = () => {
     const [searchText, setSearchText] = useState("")
@@ -23,21 +24,31 @@ const Search = () => {
         }
     }, [pageNumber, allRecipesData, searchText]);
     return <section>
-        <h1 className="text-orange-500 font-bold text-[40px] text-center mt-[80px]">Search Your Favorite Recipes</h1>
+        <h1 className="text-orange-500 font-bold text-[30px] sm:text-[40px] text-center mt-[80px]">Search Your Favorite Recipes</h1>
         <form className="flex justify-center mt-[20px]">
             <input
                 value={searchText}
-                onChange={e => setSearchText(e.target.value)}
+                onChange={e => {
+                    setPageNumber(0)
+                    setSearchText(e.target.value)
+                }}
                 placeholder="Search by name, cuisine or meal type"
-                className="border py-[10px] px-[15px] text-orange-500 font-medium outline-0 text-[18px] w-[400px]"
+                className="border py-[10px] px-[15px] text-orange-500 font-medium outline-0 text-[16px] sm:text-[18px] w-[320px] sm:w-[400px]"
             />
         </form>
-        <ShowRecipes
-            recipesToShow={recipesToShow}
-            pageNumber={pageNumber}
-            setPageNumber={setPageNumber}
-            recipesArrayLength={recipesToShowArrayLength}
-        />
+        {searchText && recipesToShowArrayLength > 0 ?
+            <ShowRecipes
+                recipesToShow={recipesToShow}
+                pageNumber={pageNumber}
+                setPageNumber={setPageNumber}
+                recipesArrayLength={recipesToShowArrayLength}
+            /> : searchText && recipesToShowArrayLength < 1 ? <div className="h-[400px] flex justify-center mt-[20px] items-center text-orange-500">
+                <p className="font-semibold">OOPS! no such recipe found!</p>
+            </div> : !searchText ? <div className="h-[400px] flex justify-center mt-[20px] items-center text-orange-500">
+                <IoSearchOutline size={60}/>
+            </div> : null
+
+        }
     </section>
 }
 

@@ -46,19 +46,29 @@ const Navbar = () => {
                     <IoCloseCircleOutline size={30}/>
                 </span>
                 <p className="font-bold text-[30px] sm:text-[36px]">Recipe Pages</p>
-                <Link to="/">
+                <Link
+                    onClick={() => setIsSidebarOpen(false)}
+                    to="/">
                     <span className=" font-semibold flex items-center gap-[10px]"><ImSpoonKnife/> Home</span>
                 </Link>
-                <Link to="/all">
+                <Link
+                    onClick={() => setIsSidebarOpen(false)}
+                    to="/all">
                     <span className=" font-semibold flex items-center gap-[10px]"><ImSpoonKnife/> All Recipes</span>
                 </Link>
-                <Link to="/cuisine/none">
+                <Link
+                    onClick={() => setIsSidebarOpen(false)}
+                    to="/cuisine/none">
                     <span className=" font-semibold flex items-center gap-[10px]"><ImSpoonKnife/> Recipe by Cuisine</span>
                 </Link>
-                <Link to="/meal-type/none">
+                <Link
+                    onClick={() => setIsSidebarOpen(false)}
+                    to="/meal-type/none">
                     <span className=" font-semibold flex items-center gap-[10px]"><ImSpoonKnife/> Recipe by Meal Type</span>
                 </Link>
-                <Link to="/search">
+                <Link
+                    onClick={() => setIsSidebarOpen(false)}
+                    to="/search">
                     <span className="mt-[10px] text-[22px] sm:text-[25px] font-semibold flex items-center gap-[10px]"><IoMdSearch/> Search Recipes</span>
                 </Link>
             </div>

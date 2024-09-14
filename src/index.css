@@ -11,8 +11,9 @@ body::-webkit-scrollbar {
 }
 
 .banner {
-    background-size: contain;
-    background: url("./assets/bg.jpg") center;
+    background-size: cover;
+    /*background-repeat: no-repeat;*/
+    background: url("./assets/bg-2.jpg") center;
 }
 
 .shadow-box {
