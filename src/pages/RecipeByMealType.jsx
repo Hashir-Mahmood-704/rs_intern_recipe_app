@@ -18,7 +18,6 @@ const RecipeByMealType = () => {
             )
             setRecipesToShowArrayLength(filteredRecipes.length)
             setRecipesToShow(slicedRecipesArray)
-            console.log(slicedRecipesArray)
         }
     }, [pageNumber, allRecipesData, mealType]);
 
