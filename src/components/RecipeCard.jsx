@@ -2,10 +2,10 @@ import {Link} from 'react-router-dom';
 
 const RecipeCard = (props) => {
     const {image, id, name, cuisine, servings} = props
-    return <Link to={`/details/${id}`} className="border pb-[5px] sm:pb-[15px] shadow-box rounded-[10px] w-[160px] sm:w-[320px] overflow-hidden">
+    return <Link to={`/details/${id}`} className="border pb-[5px] sm:pb-[15px] shadow-box rounded-[10px] w-[160px] sm:w-[320px] h-[230px] sm:h-[410px] overflow-hidden">
         <img src={image} alt="image" className="w-full h-[120px] sm:h-[300px] object-cover"/>
         <div className="mt-[5px] sm:mt-[20px] px-[10px] sm:px-[15px]">
-            <p className="font-semibold text-[14px] sm:text-[20px]">{name}</p>
+            <p className="font-semibold text-[14px] sm:text-[18px]">{name}</p>
             <div className="mt-[5px] sm:mt-[10px] w-full flex flex-col sm:flex-row justify-between">
                 <span className="font-bold text-[14px] sm:text-[18px] text-orange-500">{cuisine}</span>
                 <span className="font-semibold text-[14px] sm:text-[18px]">Servings: {servings}</span>
