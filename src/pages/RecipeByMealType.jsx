@@ -1,11 +1,11 @@
 import ShowRecipes from "../components/ShowRecipes.jsx"
-import {useContext, useState, useEffect} from "react"
-import {AppContext} from "../Context/AppContext.jsx"
+import { useContext, useState, useEffect } from "react"
+import { AppContext } from "../Context/AppContext.jsx"
 
 const availableMealTypes = ["Breakfast", "Snack", "Lunch", "Dinner"]
 
 const RecipeByMealType = () => {
-    const {allRecipesData} = useContext(AppContext)
+    const { allRecipesData } = useContext(AppContext)
     const [mealType, setMealtype] = useState("Breakfast")
     const [pageNumber, setPageNumber] = useState(0)
     const [recipesToShow, setRecipesToShow] = useState([])
@@ -19,7 +19,7 @@ const RecipeByMealType = () => {
             setRecipesToShowArrayLength(filteredRecipes.length)
             setRecipesToShow(slicedRecipesArray)
         }
-    }, [pageNumber, allRecipesData, mealType]);
+    }, [pageNumber, allRecipesData, mealType])
 
     return <section>
         <h1 className="text-orange-500 font-bold text-[30px] sm:text-[40px] text-center mt-[80px]">Recipes by Meal Type</h1>
